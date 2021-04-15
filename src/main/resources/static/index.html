@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Execute test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery351.js"></script>
+    <script src="tasks.js"></script>
+    <script src="validationMessage.js"></script>
+
+</head>
+<body>
+<div class="w3-container w3-teal">
+    <h2>Tasks</h2>
+</div>
+
+
+<div class="w3-container w3-margin">
+    <table id="tasks" class="w3-table-all w3-card-4 w3-hoverable w3-centered">
+        <tr id="headerRow">
+            <th>Task summary</th>
+            <th>Task description</th>
+            <th>Status</th>
+            <th>Complete</th>
+            <th>Delete</th>
+        </tr>
+    </table>
+</div>
+
+<form class="w3-container">
+    <label class="w3-text-teal"><b>Task Summary</b></label>
+    <input id="summary-text" class="w3-input w3-border w3-light-grey" type="text">
+
+    <label class="w3-text-teal"><b>Task Description (optional)</b></label>
+    <input id="description-text" class="w3-input w3-border w3-light-grey" type="text">
+
+    <button id="add-btn" class="w3-btn w3-blue-grey">Add</button>
+
+</form>
+<div id="validation-block"></div>
+<div id='validation-success' class="w3-panel w3-green" style="display: none">
+    <button class="w3-button">Success!</button>
+</div>
+</body>
+</html>
