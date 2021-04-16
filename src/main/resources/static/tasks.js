@@ -44,7 +44,8 @@ var $tr = $('<tr class="task-row task-row-' + i + '">').append(
             $('<td>').append($('<button id="complete-task">').text('Complete')
                         					.click(function () {
                         					   var body = {
-                                                           summary : item.summary
+                                                           summary : item.summary,
+                                                           description : item.description
                                                 };
                         						$.ajax({
                         							url: '/api/task',
@@ -54,6 +55,10 @@ var $tr = $('<tr class="task-row task-row-' + i + '">').append(
                                                     dataType: 'json',
                         							success: function (response) {
                         								$("#validation-success").fadeIn(3000).fadeOut(3000);
+                        								var rowToUpdate = $(".task-row-" + i);
+                        								rowToUpdate.children('td').eq(0).text(response.summary);
+                        								rowToUpdate.children('td').eq(1).text(response.description);
+                        								rowToUpdate.children('td').eq(2).text(response.status);
                         							},
                         							error: function (jqXHR, textStatus, errorThrown) {
                         								showError(jqXHR.responseJSON.message, jqXHR.responseText);
