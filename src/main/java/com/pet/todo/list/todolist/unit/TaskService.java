@@ -45,4 +45,9 @@ public class TaskService {
         bySummary.setStatus(Status.COMPLETED);
         return new TaskDto(taskRepository.save(bySummary));
     }
+
+    public boolean deleteAlTasks() {
+        taskRepository.deleteAll();
+        return true;
+    }
 }

@@ -36,6 +36,10 @@ public class TaskController extends AbstractController{
         return taskService.deleteTask(taskDto);
     }
 
+    @DeleteMapping("/all")
+    public Boolean deleteAll() {
+        return taskService.deleteAlTasks();
+    }
 
     @GetMapping("/all")
     public List<Task> getAllTasks() {
