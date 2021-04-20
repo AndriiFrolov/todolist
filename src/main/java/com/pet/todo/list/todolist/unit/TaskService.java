@@ -1,7 +1,8 @@
-package com.pet.todo.list.todolist.service;
+package com.pet.todo.list.todolist.unit;
 
 import com.pet.todo.list.todolist.controller.dto.Status;
 import com.pet.todo.list.todolist.controller.dto.TaskDto;
+import com.pet.todo.list.todolist.exceptions.ValidationException;
 import com.pet.todo.list.todolist.repository.TaskRepository;
 import com.pet.todo.list.todolist.repository.entity.Task;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +40,9 @@ public class TaskService {
     public TaskDto completeTask(TaskDto taskDto) {
         Task bySummary = taskRepository.findBySummary(taskDto.getSummary());
         if (bySummary.getStatus().equals(Status.COMPLETED)) {
-            throw new RuntimeException("Task already completed");
+            throw new ValidationException("Task already completed");
         }
         bySummary.setStatus(Status.COMPLETED);
-        taskRepository.save(bySummary);
-        return taskDto;
+        return new TaskDto(taskRepository.save(bySummary));
     }
 }

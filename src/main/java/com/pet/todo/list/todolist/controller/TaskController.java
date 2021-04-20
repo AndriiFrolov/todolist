@@ -3,10 +3,9 @@ package com.pet.todo.list.todolist.controller;
 import com.pet.todo.list.todolist.controller.dto.Status;
 import com.pet.todo.list.todolist.controller.dto.TaskDto;
 import com.pet.todo.list.todolist.repository.entity.Task;
-import com.pet.todo.list.todolist.service.TaskService;
+import com.pet.todo.list.todolist.unit.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,8 +27,7 @@ public class TaskController {
     @PatchMapping
     public TaskDto completeTask(@RequestBody TaskDto taskDto) {
         taskDto.setStatus(Status.COMPLETED);
-        taskService.completeTask(taskDto);
-        return taskDto;
+        return taskService.completeTask(taskDto);
     }
 
 

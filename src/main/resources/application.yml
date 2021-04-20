@@ -1,8 +1,5 @@
-# common.properties
 info:
   description: Global configuration
-
-profile: ${spring.profiles.active}  
 
 spring:
   datasource:
