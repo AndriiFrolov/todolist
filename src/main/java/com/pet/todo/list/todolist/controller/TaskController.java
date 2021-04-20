@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/task")
-public class TaskController {
+public class TaskController extends AbstractController{
 
     @Autowired
     private TaskService taskService;
