@@ -10,7 +10,7 @@ phases:
   build:
     commands:
       - mvn test
-      - mvn sonar:sonar -Dsonar.login=e6e7f008e70b1fbef4bb1288930c99434fea4028 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Todolist-project -Dsonar.organization=AndriiFrolov
+      - mvn sonar:sonar -Dsonar.login=e6e7f008e70b1fbef4bb1288930c99434fea4028 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Todolist-project -Dsonar.organization=andriifrolov
       - sleep 5
       - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=Todolist-project >result.json
       - cat result.json
