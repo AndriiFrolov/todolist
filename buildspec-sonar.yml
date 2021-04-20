@@ -1,10 +1,5 @@
 version: 0.2
-env:
-  secrets-manager:
-    LOGIN: SonarCredentials:sonartoken
-    HOST: SonarCredentials:HOST
-    Organization: SonarCredentials:Organization
-    Project: SonarCredentials:Project
+
 phases:
   install:
     runtime-versions:
@@ -22,8 +17,8 @@ phases:
   build:
     commands:
       - mvn test
-      - mvn sonar:sonar -Dsonar.login=$LOGIN -Dsonar.host.url=$HOST -Dsonar.projectKey=$Project -Dsonar.organization=$Organization
+      - mvn sonar:sonar -Dsonar.login=e6e7f008e70b1fbef4bb1288930c99434fea4028 -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=Todolist-project -Dsonar.organization=AndriiFrolov
       - sleep 5
-      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      - curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=Todolist-project >result.json
       - cat result.json
       - if [ $(jq -r '.projectStatus.status' result.json) = ERROR ] ; then $CODEBUILD_BUILD_SUCCEEDING -eq 0 ;fi
