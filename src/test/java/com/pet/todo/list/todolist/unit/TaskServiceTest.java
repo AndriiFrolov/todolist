@@ -31,7 +31,7 @@ class TaskServiceTest extends AbstractTest {
     @Test
     void whenTaskIsAlreadyCompletedExceptionIsThrown() {
         //Given
-        Task task = new Task(1L, "TestSummary", "TestDescription2", Status.COMPLETED);
+        Task task = new Task(1L, "TestSummary", "TestDescription", Status.COMPLETED);
 
         //When
         Mockito.when(taskRepository.findBySummary(task.getSummary())).thenReturn(task);
