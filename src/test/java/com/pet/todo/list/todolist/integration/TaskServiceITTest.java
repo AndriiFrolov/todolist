@@ -25,7 +25,7 @@ class TaskServiceITTest extends AbstractTest {
     @Test
     void whenTaskIsCompletedStatusSHouldBeChanged() {
         //Given
-        Task task = new Task(1L, "Test", "TestDescription", Status.NOT_STARTED);
+        Task task = new Task(1L, "TestSummary", "TestDescription", Status.NOT_STARTED);
         taskRepository.save(task);
 
         //When
