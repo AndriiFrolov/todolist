@@ -16,6 +16,7 @@ services:
       - traceable-db
 
   traceable-db:
+    container_name: "traceable_db"
     platform: linux/x86_64
     image: mysql:5.7
     restart: always
